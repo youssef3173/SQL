@@ -9,7 +9,7 @@ mycursor = mydb.cursor()
 
 
 # Get the number of Songs for each Band: Double Join
-mycursor.execute( """SELECT bands.name, COUNT(songs.name) FROM bands
+mycursor.execute( """SELECT bands.name AS Band, COUNT(songs.name) AS 'Number of Songs' FROM bands
 					INNER JOIN albums ON bands.id = albums.band_id 
 					INNER JOIN songs ON albums.id = songs.album_id
 					GROUP BY bands.name
