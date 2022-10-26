@@ -9,8 +9,11 @@ mycursor = mydb.cursor()
 
 
 
-# Insert a record for your favorite Band and one of their Albums:
-
+# Delete the Band and Album you added in #Ex8:
+mycursor.execute( "SELECT MAX(id) FROM bands;")
+band_id = mycursor.fetchone()[0]
+mycursor.execute( "DELETE FROM albums WHERE band_id = :band_id;", {'band_id': band_id})
+mycursor.execute( "DELETE FROM bands WHERE id = :band_id;", {'band_id': band_id})
 
 mycursor.execute( "SELECT * FROM bands;")
 print( mycursor.fetchall())
