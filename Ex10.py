@@ -8,12 +8,8 @@ mydb = sqlite3.connect( db_name )
 mycursor = mydb.cursor()
 
 
-
-
-
-mycursor.execute( "SELECT * FROM bands;")
-print( mycursor.fetchall())
-mycursor.execute( "SELECT * FROM albums;")
+# Get the Average Length of all Songs:
+mycursor.execute( "SELECT AVG(length) FROM songs;")
 print( mycursor.fetchall())
 
 mydb.commit()
