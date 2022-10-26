@@ -4,8 +4,6 @@ import os
 
 db_name = "Ex1.db"
 
-
-
 mydb = sqlite3.connect( db_name )
 mycursor = mydb.cursor()
 
